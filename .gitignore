@@ -1,0 +1,28 @@
+# Node modules (local dependencies)
+**/node_modules
+Frontend/node_modules
+DSS_CRM_BACK_END/node_modules
+
+# Build outputs
+**/dist
+
+# Archives
+*.zip
+*.rar
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+Backend/.env
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+node_modules
+Backend/.env
+Backend/modules/notification/config/firebaseServiceAccount.jsongit add .

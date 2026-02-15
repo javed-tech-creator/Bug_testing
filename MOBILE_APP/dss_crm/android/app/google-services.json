@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68091667284",
+    "project_id": "notification-system-design",
+    "storage_bucket": "notification-system-design.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68091667284:android:02766d81607cc963c59ec1",
+        "android_client_info": {
+          "package_name": "com.codecrafter.dsscrm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGaJkUdDQ0obNSMPRtn9SlskqEjSTWFZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

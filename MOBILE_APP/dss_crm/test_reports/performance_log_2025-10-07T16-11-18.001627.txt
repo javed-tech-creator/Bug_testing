@@ -1,0 +1,5 @@
+More than one device connected; please specify a device with the '-d <deviceId>' flag, or use '-d all' to act on all devices.
+
+Windows (desktop) â€¢ windows â€¢ windows-x64    â€¢ Microsoft Windows [Version 10.0.26100.6584]
+Chrome (web)      â€¢ chrome  â€¢ web-javascript â€¢ Google Chrome 141.0.7390.54
+Edge (web)        â€¢ edge    â€¢ web-javascript â€¢ Microsoft Edge 141.0.3537.57

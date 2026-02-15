@@ -1,0 +1,44 @@
+
+
+services:
+  backend:
+    build:
+      context: ./Backend
+    container_name: dss_backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./Backend/.env
+    volumes:
+      - ./Backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    command: npm run dev
+
+  frontend:
+    build:
+      context: ./Frontend
+    container_name: dss_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:3000
+      - CHOKIDAR_USEPOLLING=true  # live reload fix inside docker
+
+  mongo:
+    image: mongo:6
+    container_name: dss_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
