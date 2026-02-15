@@ -25,4 +25,4 @@ Thumbs.db
 
 node_modules
 Backend/.env
-Backend/modules/notification/config/firebaseServiceAccount.json
+# Backend/modules/notification/config/firebaseServiceAccount.json
