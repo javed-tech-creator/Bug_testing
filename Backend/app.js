@@ -11,7 +11,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import ApiError from "./utils/master/ApiError.js";
 import { responseMiddleware } from "./utils/master/ApiResponse.js";
-import { startNotificationWorker } from "./modules/notification/workers/notification.worker.js";
+// import { startNotificationWorker } from "./modules/notification/workers/notification.worker.js";
 import path from "path";
 cloudinary.v2.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
