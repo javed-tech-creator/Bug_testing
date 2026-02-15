@@ -102,7 +102,7 @@ io.on("connection", (socket) => {
   });
 });
 
-startNotificationWorker();
+// startNotificationWorker();
 server.listen(port, async () => {
   await dbConnection();
   console.log(`✅ Server running on http://localhost:${port}`);
