@@ -266,15 +266,18 @@ const TodaysRecce = () => {
 
   // ============================== [Api section started] ===================
 
+  // Memoize query parameters to prevent infinite refetches
+  const queryParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage
+  }), [currentPage, itemsPerPage]);
+
   const {
     data,
     isLoading,
     isFetching,
     error
-  } = useGetTodayAllRecceListQuery({
-    page: currentPage,
-    limit: itemsPerPage
-  })
+  } = useGetTodayAllRecceListQuery(queryParams)
 
   // ============================== [Api section end] ===================
 

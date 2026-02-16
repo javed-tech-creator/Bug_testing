@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import {
   Eye,
   ArrowLeft,
@@ -48,21 +48,22 @@ const WaitingRecce = () => {
 
   // ========================= [api section start] ============================
 
+  // Memoize query parameters to prevent infinite refetches
+  const queryParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage,
+    status: "waiting",
+    type: viewType
+  }), [currentPage, itemsPerPage, viewType]);
+
   const {
     data,
     isLoading,
     isFetching,
     error
-  } = useGetRecceAllWaitingLostListQuery({
-    page: currentPage,
-    limit: itemsPerPage,
-    status: "waiting",
-    type: viewType
-  },
-    {
-      refetchOnMountOrArgChange: true
-    }
-  )
+  } = useGetRecceAllWaitingLostListQuery(queryParams, {
+    refetchOnMountOrArgChange: true
+  })
 
 
   // ========================= [api section end] ===============================

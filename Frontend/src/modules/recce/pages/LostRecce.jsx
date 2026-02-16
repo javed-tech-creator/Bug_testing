@@ -187,18 +187,20 @@ const LostRecce = () => {
 
   // ========================= [api section start] ============================
 
+  // Memoize query parameters to prevent infinite refetches
+  const queryParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage,
+    status: "lost",
+    type: viewType
+  }), [currentPage, itemsPerPage, viewType]);
+
   const {
     data,
     isLoading,
     isFetching,
     error
-  } = useGetRecceAllWaitingLostListQuery({
-    page: currentPage,
-    limit: itemsPerPage,
-    status: "lost",
-    type: viewType
-  }
-  )
+  } = useGetRecceAllWaitingLostListQuery(queryParams)
 
 
   // ========================= [api section end] ===============================
