@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+// import { persistStore, persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import { rootReducer } from "./rootReducer";
@@ -20,24 +20,24 @@ import { projectMiddleware } from "./modules/project.store";
 import { recceMiddleware } from "./modules/recce.store";
 
 
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["auth"],
-  // Exclude RTK Query caches from persistence
-  blacklist: [
-    "TodayDesignsApi",
-    "NextDayPlanningApi",
-    "NextDayPlanningExceApi",
-    "WaitingLostExceDesignsApi",
-    "AssignedExceDesignsApi",
-  ]
-};
+// Temporarily disabled redux-persist to fix stack overflow issues
+// const persistConfig = {
+//   key: "root",
+//   storage,
+//   whitelist: ["auth"],
+//   blacklist: [
+//     "TodayDesignsApi",
+//     "NextDayPlanningApi",
+//     "NextDayPlanningExceApi",
+//     "WaitingLostExceDesignsApi",
+//     "AssignedExceDesignsApi",
+//   ]
+// };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
@@ -58,7 +58,8 @@ export const store = configureStore({
   devTools: import.meta.env.VITE_MODE !== "Pro",
 });
 
-export const persistor = persistStore(store);
+// Temporarily disabled - export empty persistor
+export const persistor = null;
 
 // RTK Query listener setup
 setupListeners(store.dispatch);
