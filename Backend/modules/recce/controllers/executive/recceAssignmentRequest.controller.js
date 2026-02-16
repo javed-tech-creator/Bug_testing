@@ -33,7 +33,6 @@ export const getExecutiveAssignedRecce = async (req, res, next) => {
       assignment_type: "executive",
       is_active: true,
       mark_as_started: false,
-      branch_id,
       assigned_to: executiveId,
       "feedback_panel.final_decision": decision,
     };
