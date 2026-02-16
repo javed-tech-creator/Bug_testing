@@ -229,6 +229,35 @@ const DesignsPage = () => {
 
 
 
+  // Memoize query parameters to prevent infinite refetches
+  const nextDayParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage,
+  }), [currentPage, itemsPerPage]);
+
+  const todayParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage
+  }), [currentPage, itemsPerPage]);
+
+  const waitingLostParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage,
+    status: type,
+    type: "self"
+  }), [currentPage, itemsPerPage, type]);
+
+  const decisionParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage,
+    ...(decision ? { decision: decision } : {})
+  }), [currentPage, itemsPerPage, decision]);
+
+  const upcomingParams = useMemo(() => ({
+    page: currentPage,
+    limit: itemsPerPage
+  }), [currentPage, itemsPerPage]);
+
   // ===================== start api section =================
 
   const {
@@ -236,10 +265,7 @@ const DesignsPage = () => {
     isLoading: nextDayLoading,
     isFetching: nextDayFetching,
     error: nextDayError
-  } = useGetAllNextDayPlanningQuery({
-    page: currentPage,
-    limit: itemsPerPage,
-  }, {
+  } = useGetAllNextDayPlanningQuery(nextDayParams, {
     skip: !isNextDayPlanning
   })
 
@@ -248,55 +274,36 @@ const DesignsPage = () => {
     isLoading: todayLoading,
     isFetching: todayFetching,
     error: todayError
-  } = useGetAllTodayDesignsQuery({
-    page: currentPage,
-    limit: itemsPerPage
-  },
-    {
-      skip: !isTodayDesigns
-    }
-  )
+  } = useGetAllTodayDesignsQuery(todayParams, {
+    skip: !isTodayDesigns
+  })
 
   const {
     data: waitingLostData,
     isLoading: waitingLostLoading,
     isFetching: waitingLostFetching,
     error: waitingLostError
-  }
-    = useGetAllWaitingLostExceDesignsQuery({
-      page: currentPage,
-      limit: itemsPerPage,
-      status: type,
-      type: "self"
-    }, {
-      skip: !isWaitingLostDesigns
-    })
+  } = useGetAllWaitingLostExceDesignsQuery(waitingLostParams, {
+    skip: !isWaitingLostDesigns
+  })
 
   const {
     data: decisionData,
     isLoading: decisionLoading,
     isFetching: decisionFetching,
     error: decisionError
-  } = useGetAllAssignedExceDesignQuery({
-    page: currentPage,
-    limit: itemsPerPage,
-    ...(decision ? { decision: decision } : {})
-  },
-    { skip: !isDecisionDesigns })
-
+  } = useGetAllAssignedExceDesignQuery(decisionParams, {
+    skip: !isDecisionDesigns
+  })
 
   const {
     data: upcomingData,
     isLoading: upcomingLoading,
     isFetching: upcomingFetching,
     error: upcomingError
-  } = useGetExecutiveAllUpcomingListQuery(
-    {
-      page: currentPage,
-      limit: itemsPerPage
-    },
-    { skip: !isUpcomingDesigns }
-  )
+  } = useGetExecutiveAllUpcomingListQuery(upcomingParams, {
+    skip: !isUpcomingDesigns
+  })
 
   // ===================== end api section ===================
 

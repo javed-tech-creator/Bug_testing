@@ -24,6 +24,14 @@ const persistConfig = {
   key: "root",
   storage,
   whitelist: ["auth"],
+  // Exclude RTK Query caches from persistence
+  blacklist: [
+    "TodayDesignsApi",
+    "NextDayPlanningApi",
+    "NextDayPlanningExceApi",
+    "WaitingLostExceDesignsApi",
+    "AssignedExceDesignsApi",
+  ]
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
