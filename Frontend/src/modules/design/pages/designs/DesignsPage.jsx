@@ -374,6 +374,8 @@ const DesignsPage = () => {
 
   const { data, isLoading, isFetching, error } = apiStateByType[type] ?? EMPTY_API_STATE;
 
+  console.log({ data, isLoading, isFetching, error });
+
   return (
     <div className="px-5">
       <DesignsHeader

@@ -1548,7 +1548,7 @@ const AssignedViewPage = () => {
                   (formData.decision === "flag" &&
                     (!formData.flagType || !formData.flagRemark))
                 }
-                className="flex items-center gap-2 px-4 py-2.5 px-5 text-sm rounded-sm bg-blue-500 hover:bg-blue-600 text-white disabled:opacity-50"
+                className="flex items-center gap-2 py-2.5 px-5 text-sm rounded-sm bg-blue-500 hover:bg-blue-600 text-white disabled:opacity-50"
               >
                 {isUpdating ?
                   <>
