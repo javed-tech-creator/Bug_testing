@@ -1558,7 +1558,6 @@ const AssignedViewPage = () => {
                   : "Submit"
                 }
               </button>
-
             </div>
           </div>
         </div>
