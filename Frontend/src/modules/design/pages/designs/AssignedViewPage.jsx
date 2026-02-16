@@ -139,10 +139,6 @@ const AssignedViewPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form submission
-    console.log("submit");
-    console.log({ formData })
-    console.log('selectedChecklist:>', selectedChecklist);
-
 
     const payLoad = {
       design_request_id: id,
@@ -281,7 +277,6 @@ const AssignedViewPage = () => {
   };
 
   const handleSaveReview = (data) => {
-    console.log("Final Review Data:", data);
     // setReviewData(data);
     setReviewData((prev) => ({
       ...prev,

@@ -23,9 +23,7 @@ const DesignExecutiveDashboard = () => {
     error
   } = useGetDashboardDataQuery();
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
+  // ==============================================
 
 
   const stats = [

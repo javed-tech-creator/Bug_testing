@@ -226,12 +226,6 @@ const DesignViewPage = () => {
   // [ end api calling according to the types  ]
 
 
-  useEffect(() => {
-    console.log("data received", data);
-  }, [data]);
-  console.log("data is coming", data);
-
-
   // dummy data
   const designDummyData = [
     {

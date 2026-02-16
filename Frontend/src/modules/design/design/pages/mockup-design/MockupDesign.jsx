@@ -188,10 +188,6 @@ const MockupDesign = () => {
 
   const { data, isLoading, isFetching, error } = stateByType[type] ?? {}
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
   // ========================= end api section =====================
 
 

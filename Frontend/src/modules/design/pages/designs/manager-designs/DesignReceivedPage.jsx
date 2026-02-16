@@ -150,7 +150,6 @@ const DesignReceivedPage = () => {
   const handleCloseReview = () => setIsReviewOpen(false);
 
   const handleSaveReview = (data) => {
-    console.log("Final Review Data:", data);
     setReviewData(data);
   };
 

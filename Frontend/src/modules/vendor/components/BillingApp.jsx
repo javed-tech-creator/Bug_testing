@@ -75,7 +75,6 @@ const BillingApp = ({
         .unwrap()
         .then((data) => {
           if (data?.draft?.length > 0) {
-            console.log("data is data.....:---", data);
             const draft = data.draft[0];
             setAddedProducts(
               (draft.items || []).map((item) =>
@@ -86,7 +85,6 @@ const BillingApp = ({
                 )
               )
             );
-            console.log("123 drats data is ", data.draft[0].items);
             setSelectedBranchId(draft.customerId || null);
             setInvoiceDate(
               draft.invoiceDate || new Date().toISOString().split("T")[0]
@@ -183,8 +181,6 @@ const BillingApp = ({
       setSelectedBank(value);
     }
   };
-
-  console.log("234 added products :-", addedProducts);
 
   const handleSaveAndPrint = async () => {
     // ✅ Validation: show warnings based on missing fields

@@ -311,10 +311,6 @@ const ReviewDetails = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("submit", e);
-    console.log('managerChecklist:>', managerChecklist)
-    console.log('reviewData:>', reviewData)
-    console.log("reviewData:>", reviewData);
     try {
       const formattedCheckList = managerChecklist.map(item => ({
         label: item.label,

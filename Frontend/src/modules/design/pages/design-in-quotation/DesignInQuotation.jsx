@@ -216,10 +216,6 @@ const DesignInQuotation = () => {
     }
   )
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
   return (
     <div className="px-5">
       <DesignsHeader

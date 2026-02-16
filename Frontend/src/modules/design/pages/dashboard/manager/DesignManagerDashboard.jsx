@@ -202,10 +202,7 @@ export default function DesignManagerDashboard() {
   ];
 
 
-  useEffect(() => {
-    console.log('statsData:>', statsData);
-    console.log('modificationData:>', modificationData);
-  }, [statsData, modificationData])
+  // ======================= End of mock data =======================
 
 
   return (
