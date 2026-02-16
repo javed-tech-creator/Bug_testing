@@ -6,7 +6,7 @@ import WorkingOnIt from "../../../components/WorkingOnIt";
 import DeparmentProtectedRoute from "../../../auth/DeparmentProtectedRoute";
 import PrLogin from "../login/PrLogin";
 import PRDetailPage from "../common/pages/PRDetailPage";
-import TodaysPR from "../common/table/TodaysPr";
+import TodaysPR from "../common/table/TodaysPR";
 const PrRoutes = () => {
   return (
     <Routes>
