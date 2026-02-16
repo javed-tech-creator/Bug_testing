@@ -65,11 +65,6 @@ const WaitingRecce = () => {
   )
 
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
-
   // ========================= [api section end] ===============================
 
 

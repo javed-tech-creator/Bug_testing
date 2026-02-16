@@ -276,10 +276,6 @@ const TodaysRecce = () => {
     limit: itemsPerPage
   })
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
   // ============================== [Api section end] ===================
 
 

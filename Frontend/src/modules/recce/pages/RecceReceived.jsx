@@ -310,10 +310,6 @@ const RecceReceived = () => {
   const isApiFetching = isManager ? managerFetching : executiveFetching;
   const apiError = isManager ? managerError : executiveError;
 
-  useEffect(() => {
-    console.log('apiData:>', apiData)
-  }, [apiData])
-
   // =============================== [api section end ] =======================
 
 

@@ -292,10 +292,6 @@ const RejectedRecce = () => {
     : executiveFetching;
   const error = isManager ? managerState.error : executiveError;
 
-  useEffect(() => {
-    console.log("Rejected API:", data);
-  }, [data]);
-
   // ============================== [ api section end ] ==========================
 
 

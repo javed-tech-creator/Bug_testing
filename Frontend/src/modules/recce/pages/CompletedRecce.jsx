@@ -1,14 +1,14 @@
 import React, { useMemo, useState } from "react";
 import Table from "../../../components/Table";
 import PageHeader from "../../../components/PageHeader";
-import { useGetTodayAllRecceListQuery } from "@/api/recce/common/today-recce.api";
 import { Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useGetTodayAllRecceListQuery } from "@/api/recce/common/today-recce.api";
 
 const CompletedRecce = () => {
   const navigate = useNavigate();
   // Fetch all recce data
-  const { data, isLoading } = useGetAllRecceQuery();
+  const { data, isLoading } = useGetTodayAllRecceListQuery();
 
   // Filter only completed recce
   const completedData = useMemo(() => {

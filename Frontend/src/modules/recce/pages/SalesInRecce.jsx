@@ -405,10 +405,6 @@ const SalesInRecce = () => {
     type: "pending"
   });
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
   return (
     <div className="">
       {/* Header */}

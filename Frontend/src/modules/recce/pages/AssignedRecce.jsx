@@ -320,10 +320,6 @@ const AssignedRecce = () => {
     type: viewType
   })
 
-  useEffect(() => {
-    console.log('data:>', data)
-  }, [data])
-
   // =================================== [api section end ] =========================
 
   return (

@@ -311,10 +311,6 @@ const RecceFlagRaised = () => {
     : executiveFlagFetching;
   const error = isManager ? managerState.error : executiveFlagError;
 
-  useEffect(() => {
-    console.log("Flag API data:", data);
-  }, [data]);
-
   // =================================== [api section end] =============================
 
 
