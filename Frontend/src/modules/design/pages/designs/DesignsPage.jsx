@@ -16,25 +16,22 @@ const DesignsPage = () => {
   const [timing, setTiming] = useState("");
   const [showPlanningModal, setShowPlanningModal] = useState(false);
   const { type } = useParams();
-  const [decision, setDecision] = useState("");
 
   const [sendAssignMentRequest, { isUpading }] = useSendRequestForSubmissionMutation();
 
-  useEffect(() => {
+  // Memoize decision to prevent infinite query refetches
+  const decision = useMemo(() => {
     switch (type) {
       case "received":
-        setDecision("accepted");
-        break
+        return "accepted";
       case "flag-raised":
-        setDecision("flag")
-        break
+        return "flag";
       case "declined":
-        setDecision("decline")
-        break
+        return "decline";
       default:
-        setDecision("")
+        return "";
     }
-  }, [type])
+  }, [type]);
 
   // console.log("type ", type);
   const navigate = useNavigate();
@@ -163,7 +160,6 @@ const DesignsPage = () => {
   };
 
   const handleDesignReport = (row) => {
-    console.log("Design Report", row);
     // yaha modal / pdf / report page open kara sakte ho
   };
 
@@ -193,13 +189,11 @@ const DesignsPage = () => {
         id: selectedRow?.designId,
         remark: remark,
       };
-    console.log("Final Payload:", payload);
       const res = await sendAssignMentRequest({ data: payload }).unwrap();
 
       toast.success(res?.data?.message ?? res?.message ?? "Submitted Successfully.")
 
     } catch (err) {
-      console.log('err:>', err)
       toast.error(err?.data?.message ?? err?.error?.message ?? err?.message ?? "Failed to send.")
     }
 
@@ -330,7 +324,7 @@ const DesignsPage = () => {
       data: decisionData,
       isLoading: decisionLoading,
       isFetching: decisionFetching,
-      error: decisionFetching
+      error: decisionError
     },
     "flag-raised": {
       data: decisionData,
@@ -373,8 +367,6 @@ const DesignsPage = () => {
   }
 
   const { data, isLoading, isFetching, error } = apiStateByType[type] ?? EMPTY_API_STATE;
-
-  console.log({ data, isLoading, isFetching, error });
 
   return (
     <div className="px-5">
