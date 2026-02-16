@@ -1,10 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Table from "../../../components/Table";
 import PageHeader from "../../../components/PageHeader";
-import {
-  useGetAllRecceQuery,
-  useGetRecceDetailByIdQuery,
-} from "@/api/recce/reccedetail.api";
+import { useGetTodayAllRecceListQuery } from "@/api/recce/common/today-recce.api";
 import { Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
